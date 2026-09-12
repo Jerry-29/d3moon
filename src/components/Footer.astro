@@ -1,0 +1,20 @@
+---
+import { site, services } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/"><img src="/images/d3moon-logo-white.png" alt="D3MOON" /></a>
+      <p>{site.description}</p>
+      {site.email && <a class="footer-email" href={`mailto:${site.email}`}>{site.email}</a>}
+    </div>
+    <div><h3>Company</h3><a href="/about">About</a><a href="/employers">For Employers</a><a href="/jobs">Jobs</a><a href="/contact">Contact</a></div>
+    <div><h3>What We Do</h3>{services.map(s => <a href={s.title === 'IT Recruitment' ? '/employers' : s.title === 'Career Training' || s.title === 'Career Guidance' ? '/jobs' : '/employers'}>{s.title}</a>)}</div>
+    <div><h3>Start a conversation</h3><p>Looking to hire, grow your skills or find your next opportunity?</p><a class="footer-btn" href="/contact">Talk to D3MOON <span>→</span></a></div>
+  </div>
+  <div class="container footer-bottom"><span>© {year} D3MOON. All rights reserved.</span><span>People · Skills · Better Tomorrow</span></div>
+</footer>
+<style>
+.footer{margin-top:0;background:linear-gradient(135deg,#053789,var(--color-navy-2) 55%,#0a91aa);color:#fff;padding:72px 0 22px}.footer-grid{display:grid;grid-template-columns:1.7fr .8fr 1.2fr 1.3fr;gap:50px}.footer .brand{color:#fff}.footer .brand img{width:148px;height:68px;object-fit:contain}.footer p{color:#d2e4f8;max-width:350px;margin:16px 0}.footer h3{font-size:.9rem;margin:0 0 17px}.footer-grid>div:not(.footer-brand) a{display:block;color:#d2e4f8;margin:8px 0;font-size:.9rem}.footer-grid a:hover{color:#fff}.footer-email{font-weight:700;color:#fff}.footer-btn{display:inline-flex!important;align-items:center;gap:8px;background:#fff;color:var(--color-navy)!important;border-radius:999px;padding:11px 16px;margin-top:5px!important;font-weight:800}.footer-bottom{border-top:1px solid rgba(255,255,255,.2);margin-top:54px;padding-top:20px;color:#b7d1ed;font-size:.8rem;display:flex;justify-content:space-between;gap:20px}@media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:35px}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
+</style>

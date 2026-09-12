@@ -1,0 +1,14 @@
+---
+interface Props { number: string; title: string; text: string; href: string; }
+const { number, title, text, href } = Astro.props;
+---
+<a class="service card" href={href}>
+  <span class="number">{number}</span>
+  <span class="icon" aria-hidden="true">↗</span>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  <span class="learn">Explore <span>→</span></span>
+</a>
+<style>
+.service{position:relative;display:flex;flex-direction:column;min-height:270px;padding:28px;overflow:hidden;border-top:3px solid transparent;transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease,background .24s ease}.service::before{content:'';position:absolute;width:190px;height:190px;right:-110px;bottom:-110px;border-radius:50%;background:radial-gradient(circle,rgba(37,197,208,.16),transparent 68%);transition:transform .3s ease}.service:hover{transform:translateY(-7px);border-color:#b9d8f6;border-top-color:var(--color-cyan);box-shadow:0 24px 60px rgba(13,50,95,.14)}.service:hover::before{transform:scale(1.25)}.number{position:relative;color:var(--color-blue);font-weight:900;font-size:.75rem;letter-spacing:.1em}.icon{position:relative;display:grid;place-items:center;align-self:flex-end;margin-top:-20px;width:38px;height:38px;border-radius:50%;background:#edf6ff;color:var(--color-blue);font-weight:900;transition:background .2s ease,color .2s ease,transform .2s ease}.service:hover .icon{color:#fff;background:var(--color-blue);transform:rotate(8deg)}.service h3{position:relative;font-size:1.25rem;margin:34px 0 9px}.service p{position:relative;color:var(--color-muted);font-size:.94rem;line-height:1.55;margin:0;max-width:280px}.learn{position:relative;display:inline-flex;align-items:center;gap:7px;margin-top:auto;padding-top:22px;color:var(--color-navy);font-weight:800;font-size:.88rem}.learn span{transition:transform .2s ease}.service:hover .learn span{transform:translateX(4px)}
+</style>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.d3moon.com/sitemap-index.xml
