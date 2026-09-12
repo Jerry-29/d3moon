@@ -2,27 +2,191 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import { site } from '../data/site';
 ---
-<MainLayout title="Contact D3MOON | Recruitment & Career Solutions">
+<MainLayout title="Contact | D3MOON — Join Our Team, Inquiry, Request a Call Back, Get in Touch" description="Contact D3MOON: Join our team, submit an inquiry, request a call back or get in touch about tailored HR services.">
 <main id="main-content">
-<section class="page-hero"><div class="container"><div class="eyebrow light">CONTACT D3MOON</div><h1 class="display">Let's talk about your<br /><span>next opportunity.</span></h1><p>Whether you're hiring, looking for a role or planning your career, start the conversation.</p></div></section>
-<section class="section contact-section"><div class="container contact-grid"><div class="contact-copy"><div class="eyebrow">GET IN TOUCH</div><h2 class="h2">Let's start with <span class="gradient-text">a conversation.</span></h2><p class="lead">Tell us what you're looking for and we'll help you take the next step.</p><div class="contact-details">{site.email && <a href={`mailto:${site.email}`}><small>EMAIL</small><strong>{site.email}</strong></a>}{site.phone && <a href={`tel:${site.phone}`}><small>PHONE</small><strong>{site.phone}</strong></a>}{site.location && <div><small>LOCATION</small><strong>{site.location}</strong></div>}</div></div><form class="card form" data-form="contact" data-email={site.email}><div class="form-row"><label>Name *<input name="name" required /></label><label>Email *<input type="email" name="email" required /></label></div><div class="form-row"><label>Phone<input name="phone" /></label><label>I am a:<select name="type"><option>Job Seeker</option><option>Employer</option><option>Student</option><option>Other</option></select></label></div><label>Subject *<input name="subject" required /></label><label>Message *<textarea name="message" required></textarea></label><button class="btn btn-primary" type="submit">Send Message <span>→</span></button><p class="form-status" aria-live="polite"></p></form></div></section>
+  <section class="page-hero">
+    <div class="container hero-inner">
+      <div class="eyebrow light">CONTACT US</div>
+      <h1 class="display">Let's talk about your <br /><span>HR roadmap.</span></h1>
+      <p>Whether you're exploring managed services, consulting, training or joining our team — pick the channel that fits and we'll respond promptly.</p>
+    </div>
+  </section>
+
+  <section class="section contact-split">
+    <div class="container split-grid">
+      <div class="split-info">
+        <div class="eyebrow">GET IN TOUCH</div>
+        <h2 class="h2">Multiple ways to <span class="gradient-text">start the conversation.</span></h2>
+        <p class="lead">We cover tailored HRM documents, policies, compensation benchmarking, performance management, POSH and full audits of your practices, data and documents.</p>
+
+        <div class="touch-list">
+          {[
+            {t:'Tailored HRM Documents & Formats',i:'▤'},
+            {t:'Policies & Procedures',i:'▥'},
+            {t:'Compensation Benchmarking',i:'$'},
+            {t:'Performance Management System',i:'▣'},
+            {t:'POSH',i:'◈'},
+            {t:'Comprehensive HR Practices, Data & Document Evaluation & Audit Facilitation',i:'◉'},
+          ].map(item => (
+            <div class="touch-item">
+              <span class="touch-icon">{item.i}</span>
+              <span>{item.t}</span>
+            </div>
+          ))}
+        </div>
+
+        {site.email && <a class="info-line" href={`mailto:${site.email}`}><small>EMAIL</small><strong>{site.email}</strong></a>}
+        {site.phone && <a class="info-line" href={`tel:${site.phone}`}><small>PHONE</small><strong>{site.phone}</strong></a>}
+        {site.location && <div class="info-line"><small>LOCATION</small><strong>{site.location}</strong></div>}
+      </div>
+
+      <div class="forms">
+        <article class="form-block card" id="inquiry">
+          <header>
+            <span class="block-num">01</span>
+            <div>
+              <h3>Inquiry Form</h3>
+              <p>Tell us what you need and we'll tailor a recommendation.</p>
+            </div>
+          </header>
+          <form class="form-grid" data-form="inquiry" data-email={site.email}>
+            <div class="form-row">
+              <label>Full Name *<input name="name" required /></label>
+              <label>Email Address *<input type="email" name="email" required /></label>
+            </div>
+            <div class="form-row">
+              <label>Phone Number<input name="phone" /></label>
+              <label>Industry
+                <select name="industry">
+                  <option>Technology / Software</option>
+                  <option>FinTech / Financial Services</option>
+                  <option>E-commerce / Retail</option>
+                  <option>Healthcare / Pharma</option>
+                  <option>Manufacturing / Industrial</option>
+                  <option>Services / Consulting</option>
+                  <option>Education / EdTech</option>
+                  <option>Media / Entertainment</option>
+                  <option>Other</option>
+                </select>
+              </label>
+            </div>
+            <label>Subject *<input name="subject" required placeholder="e.g. HR outsourcing for a 30-person startup" /></label>
+            <label>Your Message *<textarea name="message" required placeholder="A brief summary of your organisation, stage and what you're looking for."></textarea></label>
+            <button class="btn btn-primary" type="submit">Submit Inquiry <span>→</span></button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="form-block card alt" id="call-back">
+          <header>
+            <span class="block-num alt">02</span>
+            <div>
+              <h3>Request a Call Back</h3>
+              <p>Prefer a conversation? Leave your details and a convenient time.</p>
+            </div>
+          </header>
+          <form class="form-grid" data-form="callback" data-email={site.email}>
+            <div class="form-row">
+              <label>Name *<input name="name" required /></label>
+              <label>Phone *<input name="phone" required /></label>
+            </div>
+            <div class="form-row">
+              <label>Email<input type="email" name="email" /></label>
+              <label>Company<input name="company" /></label>
+            </div>
+            <div class="form-row">
+              <label>Preferred Date<input type="date" name="date" /></label>
+              <label>Preferred Time
+                <select name="time">
+                  <option>Morning (9:00 – 12:00)</option>
+                  <option>Afternoon (12:00 – 17:00)</option>
+                  <option>Evening (17:00 – 19:00)</option>
+                </select>
+              </label>
+            </div>
+            <label>What would you like to discuss?<textarea name="notes" placeholder="Optional — share a brief agenda."></textarea></label>
+            <button class="btn btn-outline" type="submit">Request Call Back <span>→</span></button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section join">
+    <div class="container join-inner">
+      <div>
+        <div class="eyebrow light">JOIN OUR TEAM</div>
+        <h2>Want to be part of <span>D3MOON?</span></h2>
+        <p>We're always looking for experienced HR professionals who share our values — customer focus, deep expertise, integrity, excellence and responsiveness.</p>
+      </div>
+
+      <form class="card join-form" data-form="join" data-email={site.email}>
+        <h3 class="join-title">Submit your profile</h3>
+        <div class="form-row">
+          <label>Full Name *<input name="name" required /></label>
+          <label>Phone Number *<input name="phone" required /></label>
+        </div>
+        <div class="form-row">
+          <label>Email Address *<input type="email" name="email" required /></label>
+          <label>Position Applied For *
+            <select name="position" required>
+              <option value="">Select a role</option>
+              <option>HR Consultant</option>
+              <option>HR Recruiter</option>
+              <option>Training & Development Specialist</option>
+              <option>HR Operations</option>
+              <option>Compensation & Benefits</option>
+              <option>Internship / Fresh Graduate</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label>Upload Resume / CV *
+          <input type="file" name="resume" accept=".pdf,.doc,.docx" required />
+        </label>
+        <label>Cover Note (optional)<textarea name="cover" placeholder="A short note about why you'd be a great fit."></textarea></label>
+        <button class="btn btn-primary" type="submit">Submit Application <span>→</span></button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <div class="eyebrow light">PREFERRED EMAIL?</div>
+          <h2>Prefer to write directly? <span>We'll get back to you promptly.</span></h2>
+          <p>Our commitment to prompt responsiveness and easy accessibility applies from your very first message.</p>
+        </div>
+        <div class="actions">
+          {site.email && <a class="btn btn-white" href={`mailto:${site.email}`}>Email {site.email} <b>→</b></a>}
+          <a class="btn cta-outline" href="#inquiry">Submit Inquiry</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 </MainLayout>
+
 <script>
-  const formEmail = (import.meta.env.PUBLIC_FORM_EMAIL as string | undefined) || 'pasific.coc@gmail.com';
+  const fallback = 'info@d3moon.com';
+  const formEmail = (import.meta.env.PUBLIC_FORM_EMAIL as string | undefined) || fallback;
   const endpoint = (import.meta.env.PUBLIC_FORM_ENDPOINT as string | undefined) || `https://formsubmit.co/ajax/${encodeURIComponent(formEmail)}`;
   document.querySelectorAll<HTMLFormElement>('[data-form]').forEach((form) => {
-    const contactEmail = formEmail;
     const status = form.querySelector<HTMLElement>('.form-status');
+    const contactEmail = formEmail;
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
-      const button = form.querySelector<HTMLButtonElement>('button[type=submit]');
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
       if (!button) return;
       const original = button.innerHTML; button.disabled = true; button.textContent = 'Sending…';
       try {
         const payload = new FormData(form);
-        payload.append('_subject', `D3MOON enquiry from ${payload.get('name') || 'new contact'}: ${payload.get('subject') || 'General enquiry'}`);
+        const type = form.getAttribute('data-form') || 'contact';
+        payload.append('_subject', `D3MOON ${type} from ${payload.get('name') || 'new contact'}`);
         payload.append('_replyto', String(payload.get('email') || ''));
         payload.append('_honey', '');
         payload.append('_template', 'table');
@@ -30,11 +194,126 @@ import { site } from '../data/site';
         if (!response.ok) throw new Error('request-failed');
         const result = await response.json().catch(() => null);
         if (result?.success === false || result?.success === 'false') throw new Error(result?.message || 'service-rejected');
-        form.reset(); if (status) { status.classList.remove('error'); status.textContent = 'Thank you! Your message has been sent. We will get back to you shortly.'; }
-      } catch (error) { if (status) { status.classList.add('error'); status.textContent = String(error).includes('Activation') ? 'Please activate the FormSubmit email link sent to ' + contactEmail + ', then submit again.' : 'We could not send your message. Please try again or email ' + contactEmail + '.'; } }
-      finally { button.disabled = false; button.innerHTML = original; }
+        form.reset();
+        if (status) { status.classList.remove('error'); status.textContent = 'Thank you! Your submission has been received. We will get back to you shortly.'; }
+      } catch (error) {
+        if (status) {
+          status.classList.add('error');
+          const msg = String(error);
+          status.textContent = msg.includes('Activation')
+            ? 'Please activate the FormSubmit email link sent to ' + contactEmail + ', then submit again.'
+            : 'We could not send your submission. Please try again or email ' + contactEmail + '.';
+        }
+      } finally { button.disabled = false; button.innerHTML = original; }
     });
   });
 </script>
-<style>.contact-section{background:#f7fbff}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}.contact-details{margin-top:38px;display:grid;gap:22px}.contact-details a,.contact-details div{display:grid;gap:4px}.contact-details small{font-size:.67rem;letter-spacing:.15em;color:var(--color-blue);font-weight:900}.contact-details strong{font-size:1.05rem}.form{padding:30px;display:grid;gap:17px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-status{margin:0;color:var(--color-blue);font-size:.85rem;font-weight:700}.form-status.error{color:#b42318}.form button:disabled{cursor:wait;opacity:.7}@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:35px}}@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+
+<style>
+.page-hero{
+  padding:110px 0 100px;
+  background:
+    radial-gradient(circle at 20% 78%, rgba(167,223,255,.18), transparent 45%),
+    linear-gradient(120deg,#063d91,#0759b9 62%,#0a89a7);
+  color:#fff;position:relative;overflow:visible;
+}
+.page-hero::after{
+  content:'';position:absolute;width:540px;height:540px;border-radius:50%;right:-180px;top:-260px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.018);
+}
+.hero-inner{position:relative;z-index:1}
+.page-hero p{color:#d4e6fb;max-width:680px;font-size:1.08rem;line-height:1.65}
+.page-hero .display span{color:#a7dfff}
+
+.contact-split{background:#fff}
+.split-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.split-info .lead{margin:14px 0 30px}
+.touch-list{display:grid;gap:10px;margin-bottom:34px}
+.touch-item{
+  display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;
+  padding:14px 16px;border:1px solid var(--color-line);border-radius:14px;background:#fff;
+  transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.touch-item:hover{border-color:#bcdaf6;transform:translateX(4px);box-shadow:0 14px 30px rgba(7,61,145,.06)}
+.touch-icon{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,#e7f1ff,#e2f4f7);
+  display:grid;place-items:center;font-size:1rem;color:#0759b9;font-weight:900;
+}
+.touch-item span:last-child{font-weight:700;color:#2c4367;font-size:.92rem;line-height:1.45}
+.info-line{
+  display:grid;gap:5px;padding:16px 18px;border-radius:14px;
+  background:linear-gradient(135deg,#063d91,#0a4f91);color:#fff;
+  margin-bottom:10px;transition:transform .2s ease,box-shadow .2s ease;
+}
+.info-line:hover{transform:translateX(4px);box-shadow:0 16px 34px rgba(7,61,145,.22)}
+.info-line small{font-size:.62rem;letter-spacing:.18em;color:#a7dfff;font-weight:900}
+.info-line strong{font-size:1.05rem}
+
+.forms{display:grid;gap:20px}
+.form-block{padding:30px;background:#fff;border-radius:22px}
+.form-block.alt{background:linear-gradient(180deg,#fff,#f5faff)}
+.form-block header{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;margin-bottom:22px;padding-bottom:22px;border-bottom:1px dashed #dce6f5}
+.block-num{
+  width:50px;height:50px;border-radius:16px;
+  background:linear-gradient(135deg,#063d91,#0759b9);color:#fff;
+  display:grid;place-items:center;font-weight:900;font-size:.9rem;letter-spacing:.05em;
+  box-shadow:0 12px 26px rgba(7,89,185,.26);
+}
+.block-num.alt{background:linear-gradient(135deg,#0a89a7,#25c5d0)}
+.form-block h3{margin:0;font-size:1.18rem;letter-spacing:-.01em}
+.form-block header p{margin:5px 0 0;color:var(--color-muted);font-size:.88rem}
+.form-grid{display:grid;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-status{margin:0;color:var(--color-blue);font-size:.85rem;font-weight:700}
+.form-status.error{color:#b42318}
+.form-grid button:disabled{cursor:wait;opacity:.7}
+label{display:grid;gap:7px;color:var(--color-ink);font-weight:750;font-size:.88rem}
+input,textarea,select{
+  width:100%;border:1px solid var(--color-line);border-radius:13px;background:#fff;color:var(--color-ink);
+  padding:12px 14px;outline:none;transition:border-color .18s ease,box-shadow .18s ease;
+}
+input[type="file"]{padding:10px 12px;background:#f7faff}
+input:focus,textarea:focus,select:focus{border-color:#0759b9;box-shadow:0 0 0 4px rgba(9,105,232,.1)}
+textarea{min-height:120px;resize:vertical}
+
+.join{
+  margin:0;
+  padding:80px 0;
+  background:linear-gradient(120deg,#063d91,#0759b9 62%,#0a89a7);color:#fff;
+}
+.join-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.join h2{font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.1;letter-spacing:-.04em;margin:12px 0 18px;max-width:560px}
+.join h2 span{color:#a7dfff}
+.join-inner > div > p{color:#d4e6fb;max-width:480px;line-height:1.7;margin:0;font-size:1.02rem}
+.join-form{padding:30px;color:var(--color-ink)}
+.join-title{margin:0 0 18px;font-size:1.15rem;letter-spacing:-.01em;color:#0a2d68}
+
+.final-cta{padding-top:20px;background:#fff}
+.cta-inner{
+  border-radius:30px;padding:56px 60px;color:#fff;
+  background:linear-gradient(110deg,#063d91,#0759b9 58%,#0a89a7);
+  display:flex;align-items:center;justify-content:space-between;gap:40px;overflow:visible;position:relative;
+}
+.cta-inner::after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-100px;bottom:-230px}
+.cta-inner h2{font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.05;letter-spacing:-.045em;margin:10px 0;position:relative;z-index:1}
+.cta-inner h2 span{color:#a7dfff}
+.cta-inner p{color:#c9dcee;margin:0;position:relative;z-index:1;max-width:520px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-outline{color:#fff;border-color:rgba(255,255,255,.38);background:transparent}
+.cta-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+@media(max-width:980px){
+  .split-grid{grid-template-columns:1fr;gap:40px}
+  .join-inner{grid-template-columns:1fr;gap:36px}
+  .cta-inner{flex-direction:column;align-items:flex-start;padding:44px 32px}
+}
+@media(max-width:620px){
+  .page-hero{padding:80px 0 72px}
+  .form-block{padding:22px}
+  .form-row{grid-template-columns:1fr}
+  .join-form{padding:24px}
+  .cta-inner{padding:38px 26px}
+}
 </style>

@@ -1,20 +1,93 @@
 ---
-import { site, services } from '../data/site';
+import { site } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a class="brand" href="/"><img src="/images/d3moon-logo-white.png" alt="D3MOON" /></a>
+      <a class="brand" href="/" aria-label="D3MOON home">
+        <img src="/images/d3moon-logo-white.png" alt="D3MOON" class="brand-logo" />
+      </a>
+      <p class="tagline">{site.tagline}</p>
       <p>{site.description}</p>
       {site.email && <a class="footer-email" href={`mailto:${site.email}`}>{site.email}</a>}
     </div>
-    <div><h3>Company</h3><a href="/about">About</a><a href="/employers">For Employers</a><a href="/jobs">Jobs</a><a href="/contact">Contact</a></div>
-    <div><h3>What We Do</h3>{services.map(s => <a href={s.title === 'IT Recruitment' ? '/employers' : s.title === 'Career Training' || s.title === 'Career Guidance' ? '/jobs' : '/employers'}>{s.title}</a>)}</div>
-    <div><h3>Start a conversation</h3><p>Looking to hire, grow your skills or find your next opportunity?</p><a class="footer-btn" href="/contact">Talk to D3MOON <span>→</span></a></div>
+    <div>
+      <h3>Company</h3>
+      <a href="/about">About Us</a>
+      <a href="/services">Services</a>
+      <a href="/training">Training</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div>
+      <h3>Solutions</h3>
+      <a href="/why-outsource">Why Outsource HR</a>
+      <a href="/startup">Startup Solutions</a>
+      <a href="/services#hr-management">HR Management</a>
+      <a href="/services#recruitment">Recruitment Services</a>
+    </div>
+    <div>
+      <h3>Start a conversation</h3>
+      <p>Looking for managed HR services, consulting or training for your team?</p>
+      <a class="footer-btn" href="/contact">Talk to D3MOON <span>→</span></a>
+    </div>
   </div>
-  <div class="container footer-bottom"><span>© {year} D3MOON. All rights reserved.</span><span>People · Skills · Better Tomorrow</span></div>
+  <div class="container footer-bottom">
+    <span>© {year} <span style="text-transform: uppercase;">D3MOON.</span> All rights reserved.</span>
+    <span>Process · Practice · Potency</span>
+  </div>
 </footer>
 <style>
-.footer{margin-top:0;background:linear-gradient(135deg,#053789,var(--color-navy-2) 55%,#0a91aa);color:#fff;padding:72px 0 22px}.footer-grid{display:grid;grid-template-columns:1.7fr .8fr 1.2fr 1.3fr;gap:50px}.footer .brand{color:#fff}.footer .brand img{width:148px;height:68px;object-fit:contain}.footer p{color:#d2e4f8;max-width:350px;margin:16px 0}.footer h3{font-size:.9rem;margin:0 0 17px}.footer-grid>div:not(.footer-brand) a{display:block;color:#d2e4f8;margin:8px 0;font-size:.9rem}.footer-grid a:hover{color:#fff}.footer-email{font-weight:700;color:#fff}.footer-btn{display:inline-flex!important;align-items:center;gap:8px;background:#fff;color:var(--color-navy)!important;border-radius:999px;padding:11px 16px;margin-top:5px!important;font-weight:800}.footer-bottom{border-top:1px solid rgba(255,255,255,.2);margin-top:54px;padding-top:20px;color:#b7d1ed;font-size:.8rem;display:flex;justify-content:space-between;gap:20px}@media(max-width:800px){.footer-grid{grid-template-columns:1fr 1fr;gap:35px}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
+.footer{
+  margin-top:0;
+  background: #0759b9;
+  color:#fff;
+  padding:78px 0 56px;
+  position:relative;
+  overflow:visible;
+}
+.footer::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(255,255,255,0.08), transparent 45%),
+    radial-gradient(circle at 15% 90%, rgba(167,223,255,0.12), transparent 50%);
+  pointer-events:none;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.7fr .8fr 1.2fr 1.3fr;
+  gap:50px;
+  position:relative;
+  z-index:1;
+}
+.footer .brand{
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  margin-bottom: 6px;
+}
+.brand-logo { width: auto; height: 58px; object-fit: contain; object-position: left center; }
+.footer p{color:#d6e8fb;max-width:380px;margin:14px 0;line-height:1.65}
+.footer .tagline{letter-spacing:.12em;font-weight:800;font-size:.78rem;color:#a7dfff;text-transform:uppercase;margin:18px 0 8px}
+.footer h3{font-size:.9rem;margin:0 0 17px;letter-spacing:-0.01em}
+.footer-grid>div:not(.footer-brand) a{display:block;color:#dbe8fa;margin:9px 0;font-size:.9rem;transition:color .18s ease}
+.footer-grid a:hover{color:#ffffff}
+.footer-email{font-weight:750;color:#fff;display:inline-block;margin-top:8px}
+.footer-btn{
+  display:inline-flex!important;align-items:center;gap:8px;background:#fff;color:#063d91!important;
+  border-radius:999px;padding:12px 18px;margin-top:8px!important;font-weight:800;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+.footer-btn:hover{transform:translateY(-2px);background:#f2f8ff;box-shadow:0 14px 32px rgba(0,0,0,0.22)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.18);
+  margin-top:58px;padding-top:22px;color:#b9d2ed;
+  font-size:.8rem;display:flex;justify-content:space-between;gap:20px;
+  position:relative;z-index:1;
+}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;gap:38px}}
+@media(max-width:520px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}}
 </style>

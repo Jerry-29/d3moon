@@ -1,0 +1,210 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { outsourceBenefits } from '../data/site';
+---
+<MainLayout title="Why Outsource HR | D3MOON — Cost Savings, Compliance & Strategic Bandwidth" description="Why outsource HR with D3MOON: HR cost savings, prudent financial management, regulatory compliance, reduced legal risk, strategic bandwidth, employee benefits and access to expertise.">
+<main id="main-content">
+  <section class="page-hero">
+    <div class="container hero-inner">
+      <div class="eyebrow light">WHY OUTSOURCE HR</div>
+      <h1 class="display">Defer cost. Decrease risk. <br /><span>Unlock strategic focus.</span></h1>
+      <p>Outsourcing HR solutions affords small companies the opportunity to defer the financial expenditures and inherent risks associated with recruiting a full-time HR team — all the while consistently upholding compliance standards and ensuring comprehensive employee support.</p>
+    </div>
+  </section>
+
+  <section class="section imperatives">
+    <div class="container">
+      <div class="section-heading center">
+        <div class="eyebrow">THE OPERATIVE IMPERATIVES</div>
+        <h2 class="h2">HR outsourcing helps small enterprises <span class="gradient-text">achieve their operational goals.</span></h2>
+      </div>
+      <div class="imperative-grid">
+        {[
+          ['01','Realising annual savings on HR expenditures','A predictable, subscription-style model replaces the fully-loaded cost of an internal HR hire.'],
+          ['02','Exercising prudent financial management','Know your HR spend clearly every period — without unexpected recruitment or severance costs.'],
+          ['03','Mitigating regulatory non-compliance & legal liability','Expert stewardship of policies, processes and documentation keeps you on the right side of regulation.'],
+          ['04','Reclaiming bandwidth for strategic initiatives','Remove day-to-day HR distraction and re-invest leadership focus in core business priorities.'],
+          ['05','Delivering exemplary employee benefits','Offer structured, professional support and benefits without adding internal headcount.'],
+          ['06','Securing immediate access to expert assistance','Certified, experienced HR practitioners are available when you need them — no learning curve.'],
+        ].map(i => (
+          <article class="imp-card">
+            <div class="imp-num">{i[0]}</div>
+            <h3>{i[1]}</h3>
+            <p>{i[2]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section benefits">
+    <div class="container">
+      <div class="two-col-benefits">
+        <div>
+          <div class="eyebrow">SUMMARISING THE ADVANTAGES</div>
+          <h2 class="h2">Eight material benefits <span class="gradient-text">of outsourcing HR.</span></h2>
+          <p class="lead">A structured, outsourced HR partnership delivers measurable advantages across finance, compliance, strategy and operations — across the lifecycle of your business.</p>
+          <a class="btn btn-primary" href="/contact">Talk to Us About Outsourcing <b>→</b></a>
+        </div>
+        <div class="benefits-list">
+          {outsourceBenefits.map(b => (
+            <article class="benefit-item">
+              <div class="b-num">{b.number}</div>
+              <div>
+                <h3>{b.title}</h3>
+                <p>{b.text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section summary">
+    <div class="container">
+      <div class="summary-grid">
+        {[
+          { t:'Specialised Support', d:'Prompt access to specialised HR support when you need it.' },
+          { t:'Strategic Capacity', d:'Enhanced capacity for strategic planning and endeavours.' },
+          { t:'Top-Tier Benefits', d:'Provision of top-tier benefits to employees.' },
+          { t:'Regulatory Adherence', d:'Adherence to intricate regulatory frameworks.' },
+          { t:'Expenditure Optimisation', d:'Optimisation of business expenditures.' },
+          { t:'Penalty & Lawsuit Risk', d:'Mitigation of the risk of penalty fines or lawsuits.' },
+          { t:'Operations Streamlined', d:'Enhancement and streamlining of business operations.' },
+        ].map(s => (
+          <div class="sum-card">
+            <div class="sum-tick">✓</div>
+            <div>
+              <strong>{s.t}</strong>
+              <span>{s.d}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <div class="eyebrow light">READY TO EXPLORE OUTSOURCING?</div>
+          <h2>Get the <span>quality of HR</span> you need — without the full-time HR cost.</h2>
+          <p>We'll scope a right-sized engagement for the stage and structure of your organisation.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-white" href="/contact">Request a Proposal <b>→</b></a>
+          <a class="btn cta-outline" href="/startup">Startup Solutions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+</MainLayout>
+
+<style>
+.page-hero{
+  padding:110px 0 100px;
+  background:
+    radial-gradient(circle at 80% 75%, rgba(167,223,255,.18), transparent 45%),
+    linear-gradient(120deg,#063d91,#0759b9 62%,#0a89a7);
+  color:#fff;position:relative;overflow:visible;
+}
+.page-hero::after{
+  content:'';position:absolute;width:540px;height:540px;border-radius:50%;right:-180px;top:-260px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 0 0 70px rgba(255,255,255,.025),0 0 0 140px rgba(255,255,255,.018);
+}
+.hero-inner{position:relative;z-index:1}
+.page-hero p{color:#d4e6fb;max-width:720px;font-size:1.08rem;line-height:1.65}
+.page-hero .display span{color:#a7dfff}
+
+.imperatives{background:#fff}
+.section-heading.center{margin-inline:auto;text-align:center;max-width:780px}
+.section-heading.center .lead{margin-inline:auto}
+.section-heading .lead{margin-top:0}
+.imperative-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.imp-card{
+  padding:32px 28px;border:1px solid var(--color-line);border-radius:22px;background:#fff;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;position:relative;overflow:hidden;
+}
+.imp-card::before{
+  content:'';position:absolute;width:180px;height:180px;right:-90px;bottom:-90px;border-radius:50%;
+  background:radial-gradient(circle,rgba(7,89,185,.08),transparent 65%);
+  transition:transform .3s ease;
+}
+.imp-card:hover{transform:translateY(-5px);box-shadow:0 24px 55px rgba(7,61,145,.1);border-color:#bcdaf6}
+.imp-card:hover::before{transform:scale(1.15)}
+.imp-num{
+  width:44px;height:44px;border-radius:14px;
+  background:linear-gradient(135deg,#063d91,#0759b9);
+  color:#fff;display:grid;place-items:center;font-weight:900;font-size:.82rem;letter-spacing:.08em;
+  box-shadow:0 10px 22px rgba(7,89,185,.22);margin-bottom:22px;position:relative;z-index:1;
+}
+.imp-card h3{font-size:1.12rem;line-height:1.35;margin:0 0 10px;letter-spacing:-.01em;position:relative;z-index:1}
+.imp-card p{color:var(--color-muted);font-size:.9rem;line-height:1.6;margin:0;position:relative;z-index:1}
+
+.benefits{background:var(--color-soft)}
+.two-col-benefits{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+.two-col-benefits .lead{margin:18px 0 28px}
+.benefits-list{display:grid;gap:12px}
+.benefit-item{
+  display:grid;grid-template-columns:56px 1fr;gap:18px;padding:22px 22px 22px 18px;
+  background:#fff;border:1px solid var(--color-line);border-radius:18px;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.benefit-item:hover{transform:translateX(4px);box-shadow:0 18px 40px rgba(7,61,145,.08);border-color:#bcdaf6}
+.b-num{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,#e7f1ff,#d8f1f3);
+  color:#0759b9;display:grid;place-items:center;font-weight:900;font-size:.8rem;letter-spacing:.08em;
+  border:1px solid rgba(7,89,185,.14);
+}
+.benefit-item h3{font-size:1.04rem;margin:0 0 6px}
+.benefit-item p{color:var(--color-muted);font-size:.88rem;line-height:1.6;margin:0}
+
+.summary{background:#fff}
+.summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.sum-card{
+  display:grid;grid-template-columns:46px 1fr;gap:16px;padding:22px 24px;
+  border-left:3px solid #0759b9;border-radius:0 18px 18px 0;
+  background:linear-gradient(180deg,#fff,#f6faff);
+  border-top:1px solid var(--color-line);border-right:1px solid var(--color-line);border-bottom:1px solid var(--color-line);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.sum-card:hover{transform:translateX(4px);box-shadow:0 16px 36px rgba(7,61,145,.08)}
+.sum-tick{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,#063d91,#0759b9);color:#fff;
+  display:grid;place-items:center;font-weight:900;font-size:1rem;
+  box-shadow:0 10px 22px rgba(7,89,185,.24);
+}
+.sum-card strong{display:block;font-size:1rem;margin-bottom:4px;letter-spacing:-.01em;color:#0a2d68}
+.sum-card span{color:var(--color-muted);font-size:.88rem;line-height:1.6}
+
+.final-cta{padding-top:20px}
+.cta-inner{
+  border-radius:30px;padding:56px 60px;color:#fff;
+  background:linear-gradient(110deg,#063d91,#0759b9 58%,#0a89a7);
+  display:flex;align-items:center;justify-content:space-between;gap:40px;overflow:visible;position:relative;
+}
+.cta-inner::after{content:'';position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-100px;bottom:-230px}
+.cta-inner h2{font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.05;letter-spacing:-.045em;margin:10px 0;position:relative;z-index:1}
+.cta-inner h2 span{color:#a7dfff}
+.cta-inner p{color:#c9dcee;margin:0;position:relative;z-index:1;max-width:520px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-outline{color:#fff;border-color:rgba(255,255,255,.38);background:transparent}
+.cta-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+@media(max-width:980px){
+  .imperative-grid{grid-template-columns:1fr 1fr}
+  .two-col-benefits{grid-template-columns:1fr;gap:36px}
+  .cta-inner{flex-direction:column;align-items:flex-start;padding:44px 32px}
+}
+@media(max-width:620px){
+  .page-hero{padding:80px 0 72px}
+  .imperative-grid,.summary-grid{grid-template-columns:1fr}
+  .cta-inner{padding:38px 26px}
+}
+</style>
